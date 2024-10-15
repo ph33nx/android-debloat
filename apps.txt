@@ -68,3 +68,7 @@ com.qti.xdivert
 com.qualcomm.qti.dynamicddsservice
 com.wapi.wapicertmanage
 org.ifaa.aidl.manager
+com.asus.loguploader
+com.asus.appupdater
+com.google.mainline.telemetry
+com.google.android.youtube

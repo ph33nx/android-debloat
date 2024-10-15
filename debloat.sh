@@ -7,15 +7,15 @@ then
     exit 1
 fi
 
-# Check if package.json exists in the current directory
-if [ ! -f "package.json" ]; then
-    echo "package.json not found in the current directory."
+# Check if apps.txt exists in the current directory
+if [ ! -f "apps.txt" ]; then
+    echo "apps.txt not found in the current directory."
     exit 1
 fi
 
-# Count the number of apps in package.json
-app_count=$(wc -l < package.json)
-echo "Number of apps in package.json: $app_count"
+# Count the number of apps in apps.txt
+app_count=$(wc -l < apps.txt)
+echo "Number of apps in apps.txt: $app_count"
 
 # Check adb connection (this will list connected devices)
 adb_devices=$(adb devices)
@@ -23,7 +23,7 @@ echo "Checking ADB connection..."
 echo "$adb_devices"
 
 # Use readarray to load all the package names into an array
-mapfile -t packages < package.json
+mapfile -t packages < apps.txt
 
 # Loop through each package in the array and uninstall the app
 for package_name in "${packages[@]}"
